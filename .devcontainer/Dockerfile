@@ -50,10 +50,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
 USER $USERNAME
 ENV PATH "/home/$USERNAME/.poetry/bin:$PATH"
 
-# poetry install
-ENV POETRY_VIRTUALENVS_CREATE=false
-RUN curl -sSL https://install.python-poetry.org | python -
-
 # terminal setting
 RUN wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
     && wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \

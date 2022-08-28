@@ -1,9 +1,9 @@
 // ref. https://github.com/Microsoft/vscode-remote-try-python
 {
-  "name": "Python Repository Simple",
+  "name": "namedtuple_sample",
   // Use docker-compose.extend.yml to run a command that keeps the container running.
   "dockerComposeFile": ["../docker-compose.yml"],
-  "service": "python_repository_simple",
+  "service": "namedtuple_sample",
   "workspaceFolder": "/project",
   "shutdownAction": "stopCompose",
   // Comment out the next line to run as root instead. Linux users,
@@ -23,14 +23,11 @@
     "python.pythonPath": "/usr/local/bin/python",
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--config=.flake8"],
-    "python.linting.lintOnSave": true,
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["--line-length", "100"],
+    "python.linting.flake8Enabled": false,
+    "python.linting.lintOnSave": false,
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true,
+    "python.testing.pytestEnabled": false,
     "python.analysis.diagnosticMode": "workspace",
     "python.jediEnabled": false,
     "python.languageServer": "Pylance",
@@ -38,32 +35,21 @@
     "vsintellicode.python.completionsEnabled": true,
     "vsintellicode.features.python.deepLearning": "enabled",
     "vsintellicode.modify.editor.suggestSelection": "enabled",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
     "[python]": {
       "editor.tabSize": 4
-    },
-    "[json]": {
-      "editor.tabSize": 2
-    },
-    "[yaml]": {
-      "editor.tabSize": 2
-    },
-    "autoDocstring.docstringFormat": "numpy",
-    "autoDocstring.startOnNewLine": true
+    }
   },
   "extensions": [
     "ms-python.python",
-    "esbenp.prettier-vscode",
-    "njpwerner.autodocstring",
     "eamodio.gitlens",
     "ms-python.vscode-pylance",
     "VisualStudioExptTeam.vscodeintellicode",
-    "exiasr.hadolint",
     "bungcip.better-toml",
     "usernamehw.errorlens"
   ],
-  "postStartCommand": "pip install -U pip && poetry self update && poetry install --no-interaction"
+  "postStartCommand": "pip install -U pip"
 }
